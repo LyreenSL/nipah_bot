@@ -7,6 +7,8 @@ async def set_commands(bot):
         BotCommand(command='/nipah_add', description='Добавить слово-триггер'),
         BotCommand(command='/nipah_remove', description='Удалить слово-триггер'),
         BotCommand(command='/nipah_cancel', description='Прервать действие'),
-        BotCommand(command='/nipah_show', description='Показать все слова с ответами')
+        BotCommand(command='/nipah_show', description='Показать все слова с ответами'),
+        BotCommand(command='/rape', description='c===3'),
+        BotCommand(command='/rape_image', description='c===3')
     ]
     await bot.set_my_commands(commands)

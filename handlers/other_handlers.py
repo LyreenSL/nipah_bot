@@ -16,7 +16,8 @@ async def somebody_added(message: Message):
     await message.reply_photo(FSInputFile("media/hello_image.jpg"))
 
 
-@router.message((F.text == '/rape') | (F.sticker.file_unique_id == 'AgADaEIAAknnuEg'))
+@router.message(Command(commands=["rape"]))
+@router.message(F.sticker.file_unique_id == 'AgADaEIAAknnuEg')
 async def cmd_rape(message: Message):
 
     dom = get_mention(message)
