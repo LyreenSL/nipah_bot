@@ -16,7 +16,7 @@ async def somebody_added(message: Message):
     await message.reply_photo(FSInputFile("media/hello_image.jpg"))
 
 
-@router.message(Command(commands=["rape"]))
+@router.message((F.text == '/rape') | (F.sticker.file_unique_id == 'AgADaEIAAknnuEg'))
 async def cmd_rape(message: Message):
 
     dom = get_mention(message)
@@ -35,8 +35,20 @@ async def cmd_rape(message: Message):
     await message.answer(text=answ, parse_mode='Markdown')
 
 
+@router.message(Command(commands=["rape_image"]))
+async def cmd_rape(message: Message):
+
+    dom = get_mention(message)
+    if message.reply_to_message:
+        answ = f'{dom} жёстко выебал(а) персонажа на картинке'
+    else:
+        answ = f'{dom} жёстко выебал(а) воздух'
+
+    await message.answer(text=answ, parse_mode='Markdown')
+
+
 @router.message(F.text.lower().startswith('помолиться'))
 async def cmd_prey(message: Message):
     user = get_mention(message)
     god = message.text[10:]
-    await message.answer(f'{user} помолился{god}', parse_mode='Markdown')
+    await message.answer(f'{user} помолил(а)ся{god}', parse_mode='Markdown')
